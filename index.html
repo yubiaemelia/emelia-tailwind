@@ -1,89 +1,324 @@
+
 <!DOCTYPE html>
 <html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+
+    <title>Emelia Yubia | Portfolio</title>
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss"> @custom-variant dark (&:where(.dark, .dark *));
+
+    <style type="text/tailwindcss">
+        @custom-variant dark (&:where(.dark, .dark *));
+
+        @layer components {
+            .btn-primary {
+                @apply inline-flex items-center justify-center px-6 py-3
+                bg-blue-600 text-white font-semibold rounded-lg
+                hover:bg-blue-700 transition duration-300
+                focus-visible:outline-2 focus-visible:outline-offset-2
+                focus-visible:outline-blue-500;
+            }
+
+            .btn-secondary {
+                @apply inline-flex items-center justify-center px-6 py-3
+                bg-slate-700 text-white font-semibold rounded-lg
+                hover:bg-slate-600 transition duration-300
+                focus-visible:outline-2 focus-visible:outline-offset-2
+                focus-visible:outline-slate-500;
+            }
+
+            .btn-accent {
+                @apply inline-flex items-center justify-center px-6 py-3
+                bg-amber-500 text-slate-950 font-semibold rounded-lg
+                hover:bg-amber-400 transition duration-300
+                focus-visible:outline-2 focus-visible:outline-offset-2
+                focus-visible:outline-amber-500;
+            }
+
+            .form-input {
+                @apply w-full p-3 bg-transparent
+                border-b-2 border-slate-300 dark:border-slate-600
+                outline-none transition duration-300
+                focus:border-blue-600 dark:focus:border-blue-400;
+            }
+
+            .section-title {
+                @apply text-3xl font-bold mb-5;
+            }
+        }
     </style>
 </head>
 
-<body class="text-center dark:bg-slate-900 bg-white text-slate-900 dark:text-white">
-    <h1 class="text-3xl font-bold"> Emelia Yubia</h1>
+<body class="min-h-screen bg-slate-50 text-slate-900
+             dark:bg-slate-950 dark:text-slate-100
+             transition-colors duration-300">
 
-    <header>
-        <h1 class="text-3xl text-red-500 font-bold underline">
-            Hello world!
-        </h1>
-        <nav class="flex justify-between items-center mx-[50px] max-[600px]:flex-col">
-            <span class="text-green-500 text-[50px]">
-                @shekyutt`
-            </span>
-            <ul class="flex gap-5 list-none max-[600px]:flex-col">
-                <li><a href="#projects" class="hover:text-red-500">Projects</a></li>
-                <li><a href="#services" class="hover:text-red-300">Services</a></li>
-                <li><a href="#contact" class="hover:text-red-200">Contact Me</a></li>
+    <!-- Navigation -->
+    <header class="px-6 md:px-12 py-6">
+        <nav class="max-w-6xl mx-auto flex justify-between
+                    items-center gap-6 flex-wrap">
+
+            <a href="#home"
+               class="text-2xl md:text-3xl font-bold text-blue-600
+                      dark:text-blue-400">
+                @shekyutt
+            </a>
+
+            <ul class="flex flex-wrap gap-5 font-medium">
+                <li>
+                    <a href="#projects"
+                       class="hover:text-amber-500 transition-colors">
+                        Projects
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#services"
+                       class="hover:text-amber-500 transition-colors">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact"
+                       class="hover:text-amber-500 transition-colors">
+                        Contact
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
 
-    <main class="flex flex-wrap gap-[30px] p-[50px] m-[50px] max-[600px]:p-[15px]
-     max-[600px]:m-[10px]">
+    <!-- Theme Controls -->
+    <div class="flex justify-center flex-wrap gap-3 px-4 my-6">
+        <button id="switch" type="button" class="btn-primary"
+                aria-pressed="false">
+            Switch Theme
+        </button>
+
+        <button id="toggledark" type="button" class="btn-secondary"
+                aria-pressed="false">
+            Toggle Dark
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <main id="home" class="max-w-6xl mx-auto px-6 md:px-12">
+
+        <section class="py-16 md:py-24 text-center">
+            <p class="text-amber-600 dark:text-amber-400
+                      font-semibold tracking-widest uppercase mb-4">
+                Welcome to my portfolio
+            </p>
+
+            <h1 class="text-4xl md:text-6xl font-extrabold
+                       tracking-tight leading-tight">
+                Hello, I'm
+                <span class="text-blue-600 dark:text-blue-400">
+                    Emelia Yubia
+                </span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto mt-6 text-lg
+                      text-slate-600 dark:text-slate-300 leading-relaxed">
+                I am passionate about web development, information systems,
+                and creating digital solutions that help people and businesses.
+            </p>
+
+            <a href="#projects" class="btn-primary mt-8">
+                Explore My Projects
+            </a>
+        </section>
+
         <!-- Projects -->
-        <section id="projects" class="flex-1 min-w-[280px] border-2 border-black p-5 
-        bg-pink-400 max-[600px]:min-w-0">
-            <h2 class="max-[768px]:text-[48px] max-[768px]:text-blue-500">
+        <section id="projects" class="py-14 scroll-mt-8">
+            <h2 class="section-title text-blue-600 dark:text-blue-400">
                 My Projects
             </h2>
-            <p>
-                Personal portfolio, payroll system, company website,startup website, and compliance monitoring system.
+
+            <p class="max-w-3xl leading-8 text-slate-600
+                      dark:text-slate-300">
+                Personal portfolio, payroll system, company website,
+                startup website, and compliance monitoring system.
+                These projects demonstrate my interest in building
+                practical and useful digital solutions.
             </p>
         </section>
+
         <!-- Services -->
-        <section id="services" class="flex-1 min-w-[280px] border-2 border-gray-300 dark:border-slate-800 dark:bg-slate-900 p-5
-         bg-gray-500 max-[600px]:min-w-0">
-            <h2 class="max-[768px]:text-[48px] max-[768px]:text-blue-500">
+        <section id="services" class="py-14 scroll-mt-8">
+            <h2 class="section-title text-slate-700 dark:text-slate-200">
                 My Services
             </h2>
-            <p>
-                Website Creation, System Creation, AI Automation,Database Management, Project Management, Systems
-                Analyst
+
+            <p class="max-w-3xl leading-8 text-slate-600
+                      dark:text-slate-300">
+                I focus on website creation, system development,
+                AI automation, database management, project management,
+                and systems analysis.
             </p>
+
+            <ul class="grid grid-cols-1 sm:grid-cols-2
+                       lg:grid-cols-3 gap-x-8 gap-y-5 mt-8">
+
+                <li class="flex items-center gap-3">
+                    <span class="text-amber-500 font-bold">01.</span>
+                    Website Creation
+                </li>
+
+                <li class="flex items-center gap-3">
+                    <span class="text-amber-500 font-bold">02.</span>
+                    System Development
+                </li>
+
+                <li class="flex items-center gap-3">
+                    <span class="text-amber-500 font-bold">03.</span>
+                    AI Automation
+                </li>
+
+                <li class="flex items-center gap-3">
+                    <span class="text-amber-500 font-bold">04.</span>
+                    Database Management
+                </li>
+
+                <li class="flex items-center gap-3">
+                    <span class="text-amber-500 font-bold">05.</span>
+                    Project Management
+                </li>
+
+                <li class="flex items-center gap-3">
+                    <span class="text-amber-500 font-bold">06.</span>
+                    Systems Analysis
+                </li>
+            </ul>
         </section>
+
         <!-- Contact -->
-        <section id="contact" class="flex-1 min-w-[280px] border-2 border-black p-5 
-        bg-violet-500 max-[600px]:min-w-0">
-            <h2 class="max-[768px]:text-[48px] max-[768px]:text-blue-500">
-                Let's build together!
+        <section id="contact" class="py-14 scroll-mt-8">
+            <h2 class="section-title text-amber-600 dark:text-amber-400">
+                Let's Build Together!
             </h2>
-            <form action="#" class="flex flex-col gap-5">
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" required class="border border-gray-400 p-2">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" required class="border border-gray-400 p-2">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required class="border border-gray-400 p-2">
-                </textarea>
-                <button type="submit" class="bg-black text-white p-3 rounded-[15px] hover:bg-red-500">
+
+            <p class="mb-8 max-w-2xl leading-7
+                      text-slate-600 dark:text-slate-300">
+                Have a question or project idea? Send me a message
+                using the form below.
+            </p>
+
+            <form id="contactForm"
+                  class="max-w-xl flex flex-col gap-5"
+                  action="#"
+                  method="get">
+
+                <div class="text-left">
+                    <label for="name" class="block mb-2 font-medium">
+                        Name
+                    </label>
+
+                    <input id="name" name="name" type="text"
+                           placeholder="Enter your name"
+                           autocomplete="name"
+                           required maxlength="100"
+                           class="form-input">
+                </div>
+
+                <div class="text-left">
+                    <label for="email" class="block mb-2 font-medium">
+                        Email
+                    </label>
+
+                    <input id="email" name="email" type="email"
+                           placeholder="Enter your email"
+                           autocomplete="email"
+                           required maxlength="254"
+                           class="form-input">
+                </div>
+
+                <div class="text-left">
+                    <label for="message" class="block mb-2 font-medium">
+                        Message
+                    </label>
+
+                    <textarea id="message" name="message"
+                              rows="5" required maxlength="2000"
+                              placeholder="Write your message here..."
+                              class="form-input resize-y"></textarea>
+                </div>
+
+                <button type="submit" class="btn-accent self-start">
                     Send Message
                 </button>
+
+                <p id="formNotice" role="status" aria-live="polite"
+                   class="text-sm text-slate-600 dark:text-slate-300">
+                </p>
             </form>
         </section>
-    </main>
-    <button id="switch"class="bg-black text-white p-(12px) rounded-[10px] transition-colors duration-500 ease-in-out hover:bg-pink-500">switch</button>
-    <button id="toggledark"class="bg-black text-white p-(12px) rounded-[10px] transition-colors duration-500 ease-in-out hover:bg-pink-500">Toggledark</button>
-    <script src="script.js"></script>
-    <script>
-        const toggleDarkButton = document.querySelector('#toggledark');
-        const html = document.querySelector('html');
 
-        toggleDarkButton.addEventListener('click', function(){
-            html.classList.toggle('dark');
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-12 py-8 px-6 text-center
+                   border-t border-slate-200 dark:border-slate-800">
+
+        <p class="text-slate-600 dark:text-slate-400">
+            &copy; 2026 Emelia Yubia. All rights reserved.
+        </p>
+
+        <a href="#home"
+           class="inline-block mt-3 text-blue-600 dark:text-blue-400
+                  hover:text-amber-500 transition-colors">
+            Back to Top ↑
+        </a>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+    <script>
+        console.log("GSAP Version: ", gsap.version);
+        //1.gsap.to(),gsap.from(),gsap.fromTo()
+        gsap.to("h1", {y: 200, duration: 1 });
+        // gsap.to("h1", { rotation:360,duration: 1 });
+        // gsap.to("h1", { opacity: 0.3, duration: 1 });
+        // gsap.to("h1", { scale:1.5, duration: 1});
+        // gsap.to("h1", { backgroundColor: "red", duration: 1});
+        //2.Easing
+        gsap.from("h1", {y:-60,opacity:0, duration: 2, ease:"power2.out"}); 
+        // gsap.from("h1", {y:-60,opacity:0, duration: 2, ease:"back.out(2.5)"}); 
+        // gsap.from("h1", {y:-60,opacity:0, duration: 2, ease:"bounce.out"});
+        // gsap.from("h1", {y:-60,opacity:0, duration: 2, ease:"elastic.out(1.05)"});`
+        //3.Stagger
+        gsap.from("nav a", {y: -20,opacity: 0,duration: 0.5,ease: "power2.out",stagger: {each: 0.2,from: "start" }});
+        const html = document.documentElement;
+        const switchButton = document.querySelector('#switch');
+        const toggleDarkButton = document.querySelector('#toggledark');
+        const contactForm = document.querySelector('#contactForm');
+        const formNotice = document.querySelector('#formNotice');
+
+        function toggleTheme() {
+            const isDark = html.classList.toggle('dark');
+
+            switchButton.setAttribute('aria-pressed', String(isDark));
+            toggleDarkButton.setAttribute('aria-pressed', String(isDark));
+        }
+
+        switchButton.addEventListener('click', toggleTheme);
+        toggleDarkButton.addEventListener('click', toggleTheme);
+
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            if (!contactForm.reportValidity()) {
+                return;
+            }
+
+            formNotice.textContent =
+                'Your form is valid! Connect a backend or email service to send your message.';
         });
     </script>
 
 </body>
-
 </html>
