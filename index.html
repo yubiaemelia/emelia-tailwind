@@ -279,19 +279,101 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
     <script>
         console.log("GSAP Version: ", gsap.version);
-        //1.gsap.to(),gsap.from(),gsap.fromTo()
-        gsap.to("h1", {y: 200, duration: 1 });
-        // gsap.to("h1", { rotation:360,duration: 1 });
-        // gsap.to("h1", { opacity: 0.3, duration: 1 });
-        // gsap.to("h1", { scale:1.5, duration: 1});
-        // gsap.to("h1", { backgroundColor: "red", duration: 1});
-        //2.Easing
-        gsap.from("h1", {y:-60,opacity:0, duration: 2, ease:"power2.out"}); 
-        // gsap.from("h1", {y:-60,opacity:0, duration: 2, ease:"back.out(2.5)"}); 
-        // gsap.from("h1", {y:-60,opacity:0, duration: 2, ease:"bounce.out"});
-        // gsap.from("h1", {y:-60,opacity:0, duration: 2, ease:"elastic.out(1.05)"});`
-        //3.Stagger
-        gsap.from("nav a", {y: -20,opacity: 0,duration: 0.5,ease: "power2.out",stagger: {each: 0.2,from: "start" }});
+        
+ // 1. GSAP TO, FROM, AND FROMTO
+
+// Move the heading smoothly upward
+gsap.to("h1", {
+    y: -10,
+    duration: 1,
+    ease: "power2.inOut"
+});
+
+// Fade in the heading from below
+gsap.from("h1", {
+    y: 50,
+    opacity: 0,
+    duration: 1.5,
+    ease: "power3.out"
+});
+
+// Animate the heading from a starting state to an ending state
+gsap.fromTo("h1",
+    {
+        scale: 0.8,
+        opacity: 0
+    },
+    {
+        scale: 1,
+        opacity: 1,
+        duration: 1.5,
+        ease: "back.out(1.7)"
+    }
+);
+
+
+// 2. EASING
+
+// Smooth fade-in animation for the paragraph
+gsap.from("p", {
+    y: 25,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power2.out"
+});
+
+// Smooth entrance for the buttons
+gsap.from("button", {
+    scale: 0.8,
+    opacity: 0,
+    duration: 0.8,
+    ease: "back.out(1.7)",
+    stagger: 0.15
+});
+
+
+// 3. STAGGER
+
+// Animate navigation links one by one
+gsap.from("nav a", {
+    y: -25,
+    opacity: 0,
+    duration: 0.8,
+    ease: "power3.out",
+    stagger: {
+        each: 0.2,
+        from: "start"
+    }
+});
+
+// Animate portfolio sections one by one
+gsap.from("section", {
+    y: 35,
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+    stagger: 0.25
+});
+
+const portfolioTimeline = gsap.timeline({
+    defaults: {
+        ease: "power3.out"
+    }
+});
+
+portfolioTimeline.from("nav a", {
+    y: -20,
+    opacity: 0,
+    duration: 0.6,
+    stagger: 0.15
+});
+
+portfolioTimeline.from("h1", {
+    y: 35,
+    opacity: 0,
+    duration: 0.9
+});
+
         const html = document.documentElement;
         const switchButton = document.querySelector('#switch');
         const toggleDarkButton = document.querySelector('#toggledark');
